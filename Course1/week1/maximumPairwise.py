@@ -31,6 +31,7 @@ first = 0
 second = 0
 for x in range(0, n):
     if a[x] > first:
+        second = first
         first = a[x]
     elif a[x] > second:
         second = a[x]

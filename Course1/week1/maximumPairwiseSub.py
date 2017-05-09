@@ -1,12 +1,13 @@
 #python3
 n = int(input())
-a = [int(x) for x in input('1 2 3').split()]
+a = [int(x) for x in input().split()]
 assert(len(a) == n)
 
 first = 0
 second = 0
 for x in range(0, n):
     if a[x] > first:
+        second = first
         first = a[x]
     elif a[x] > second:
         second = a[x]
