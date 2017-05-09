@@ -6,15 +6,12 @@ Created on Tue May  9 07:46:06 2017
 @author: brendontucker
 """
 
+#
+##input info
+#n = int(input())
+#a = [int(x) for x in input().split()]
+#assert(len(a) == n)
 
-'''#input info
-n = int(input())
-a = [int(x) for x in input().split()]
-assert(len(a) == n)
-'''
-n = 11
-a = [10, 12, 3, 4, 5, 1, 1, 3, 12, 15, 4]
-result = 0
 
 #brute force
 #
@@ -25,13 +22,18 @@ result = 0
 #
 #print(result)
 
+n = 3
+a = [1, 2, 3]
+result = 0
+
+
 first = 0
 second = 0
 for x in range(0, n):
-    if x > first:
-        first = x
-    elif x > second:
-        second = x
+    if a[x] > first:
+        first = a[x]
+    elif a[x] > second:
+        second = a[x]
         
 result = first * second
 print(result)
