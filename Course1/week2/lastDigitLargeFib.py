@@ -9,6 +9,39 @@ maybe I need to abandon arrays--might be taking too long, saw someone who
 claimed that they only used three variables. This might be more efficient
 """
 
+
+n = int(input())
+#n = 2
+resultList = [0, 1]
+result = 0
+if n == 0:
+    result = 0
+elif n == 1:
+    result = 1
+else:
+    n += 1
+    for x in range(2, n):
+        newNum = (resultList[x-2] + resultList[x-1])%10
+        resultList.append(newNum)
+    result = resultList[-1]
+    
+print(result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 n = int(input())
 #n = 999999
 if n == 0:
@@ -28,7 +61,7 @@ else:
     
 #result = str(curr) 
 print(curr%10)
-
+'''
 
 
 
