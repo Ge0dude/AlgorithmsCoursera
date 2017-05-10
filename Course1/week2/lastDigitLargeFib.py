@@ -4,24 +4,40 @@
 Created on Wed May 10 07:46:15 2017
 
 @author: brendontucker
+
+maybe I need to abandon arrays--might be taking too long, saw someone who
+claimed that they only used three variables. This might be more efficient
 """
 
-n = int(input())
-#n = 200
-resultList = [0, 1]
-result = 0
+#n = int(input())
+n = 327305
 if n == 0:
     result = 0
 elif n == 1:
     result = 1
 else:
-    n += 1
-    for x in range(2, n):
-        newNum = resultList[0] + resultList[1]
-        resultList.append(newNum)
-        resultList.pop(0)
-        #can remove something from front here to save memory 
-    result = resultList[-1]
+    counter = 1
+    small = 0
+    big = 1
+    while counter < n:
+        curr = small + big
+        small = big
+        big = curr
+        counter += 1
+        
     
-result = str(result)
+result = str(curr) #maybe this takes a good bit of time?
 print(result[-1])
+
+
+
+
+
+
+
+
+
+
+
+
+
