@@ -12,8 +12,8 @@ length-- 4, 8, 5, 20, 24
 """
 
 #n = int(input())
-n = 30
-m = 2
+n = 50
+m = 5
 resultList = [0, 1]
 modVarList = [0, 1]
 result = 0
@@ -30,8 +30,31 @@ else:
         newNum = resultList[x-2] + resultList[x-1]
         resultList.append(newNum)
         modNum = newNum % m
-        if modNum == 0:
-            zeroBool = True
+        if x > 3:
+            if modVarList[-1] == 1:
+               if modVarList[-2] == 1:
+                   if modVarList[-3] == 0:
+                       break
+        
+        modVarList.append(modNum)
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+'''
+if modNum == 0:
+            if zeroBool == True:
+                zeroBool = False
+            else:
+                zeroBool = True
         elif modNum == 1:
             if zeroBool == True:
                 if oneBool == True:
@@ -42,8 +65,4 @@ else:
                 zeroBool = False
         
         #here is where I could check for 011 sequence
-        
-        modVarList.append(modNum)
-
-        
-        
+'''        
