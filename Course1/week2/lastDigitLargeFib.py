@@ -9,25 +9,25 @@ maybe I need to abandon arrays--might be taking too long, saw someone who
 claimed that they only used three variables. This might be more efficient
 """
 
-#n = int(input())
-n = 327305
+n = int(input())
+#n = 999999
 if n == 0:
     result = 0
 elif n == 1:
     result = 1
 else:
-    counter = 1
+    counter = 2
     small = 0
     big = 1
-    while counter < n:
+    while counter <= n:
         curr = small + big
         small = big
         big = curr
         counter += 1
         
     
-result = str(curr) #maybe this takes a good bit of time?
-print(result[-1])
+#result = str(curr) 
+print(curr%10)
 
 
 
