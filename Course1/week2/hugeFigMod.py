@@ -5,15 +5,15 @@ Created on Wed May 10 13:57:20 2017
 
 @author: brendontucker
 
-mainly an exploration file to understand problem growth not to implement an 
-efficient solution
-modVar-- 2, 3, 4, 5, 6
-length-- 4, 8, 5, 20, 24 
 """
+import sys
 
-#n = int(input())
-n = 2816213588
-m = 30524
+input = sys.stdin.read();
+n, m = map(int, input.split())
+
+n, m = map(int, input.split())
+#n = 1
+#m = 239
 resultList = [0, 1]
 modVarList = [0, 1]
 
@@ -49,6 +49,7 @@ if n >= m:
 if m > n:
     result = modVarList[-1]
 
+print(result)
         
         
         
