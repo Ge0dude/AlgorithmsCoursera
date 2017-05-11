@@ -12,14 +12,11 @@ length-- 4, 8, 5, 20, 24
 """
 
 #n = int(input())
-n = 50
-m = 5
+n = 2816213588
+m = 30524
 resultList = [0, 1]
 modVarList = [0, 1]
-result = 0
-zeroBool = False
-oneBool = False
-#twoBool = False
+
 if n == 0:
     result = 0
 elif n == 1:
@@ -34,9 +31,23 @@ else:
             if modVarList[-1] == 1:
                if modVarList[-2] == 1:
                    if modVarList[-3] == 0:
+                       for x in range(3):
+                           modVarList.pop()
                        break
         
         modVarList.append(modNum)
+        
+#now need to divide 
+#for x in range(3):
+#    modVarList.pop()
+#this had to be moved up for teh cases where m > n 
+n -= 1 
+if n >= m:    
+    periodLength = len(modVarList)    
+    remainder = n % periodLength
+    result = modVarList[remainder]
+if m > n:
+    result = modVarList[-1]
 
         
         
