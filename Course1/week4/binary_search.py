@@ -7,29 +7,29 @@ import sys
 file = open('/Users/brendontucker/AlgorithmsCoursera/Course1/week4/binarySearchTest1')
 sys.stdin = file
 
-
-def binary_search_recursive(list1, toFind, left=0, right=None):
-    left = left
-    if type(right) == None:
-        right = len(list1) - 1
+def binary_search_recursive(list1, toFind, left=0, right=n):
+#    if toFind > list1[-1]:
+#        return -1
+    if right < left:
+        return -1
+    print('left is:', left, 'right is:', right)
+    mid = left + ((right - left)//2)
+    print('this is mid:','[', mid, ']')
+    if toFind == list1[mid]:
+        print('number was found:', mid )
+        return mid
+    elif toFind < list1[mid]:
+        #mid = mid - 1
+        return binary_search_recursive(list1, toFind, left, mid)
     else:
-        right = len(list1[left:right]) 
-    if len(list1) == 0:
-        return -1
-    elif toFind < list1[0]:
-        return -1
-    elif toFind > list1[len(list1) -1]:
-        return -1
-    else:
-        mid = left + ((right - left) // 2)
-        if toFind == list1[mid]:
-            return mid
-        elif toFind > list1[mid]:
-            return binary_search_recursive(list1, toFind, mid, right)
-        else:
-            return binary_search_recursive(list1, toFind, left, mid)
+        mid = mid + 1
+        return binary_search_recursive(list1, toFind, mid, right)
+    
+    
+ 
 
-#slicing inceases complexity... might need four arguments
+
+
 
 
             
@@ -112,3 +112,26 @@ if __name__ == '__main__':
 #            return binary_search_recursive(list1[mid+1:], toFind)
 #        else:
 #            return binary_search_recursive(list1[:mid], toFind)
+
+
+#
+#def binary_search_recursive(list1, toFind, left=0, right=None): #could do n-1
+#    left = left
+#    if type(right) == None:
+#        right = len(list1) - 1
+#    else:
+#        right = len(list1[left:right]) 
+#    if len(list1) == 0:
+#        return -1
+#    elif toFind < list1[0]:
+#        return -1
+#    elif toFind > list1[len(list1) -1]:
+#        return -1
+#    else:
+#        mid = left + ((right - left) // 2)
+#        if toFind == list1[mid]:
+#            return mid
+#        elif toFind > list1[mid]:
+#            return binary_search_recursive(list1, toFind, mid + 1, right)
+#        else:
+#            return binary_search_recursive(list1, toFind, left, mid  - 1)
