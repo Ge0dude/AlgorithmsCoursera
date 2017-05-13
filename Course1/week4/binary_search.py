@@ -4,7 +4,7 @@ changed x to b so that it matched the problem explanation
 '''
 import sys
 
-file = open('/Users/brendontucker/AlgorithmsCoursera/Course1/week4/binarySearchTest1')
+file = open('/Users/brendontucker/AlgorithmsCoursera/Course1/week4/binarySearchTest2')
 sys.stdin = file
 
 def binary_search_recursive(list1, toFind, left=0, right=n):
@@ -12,14 +12,16 @@ def binary_search_recursive(list1, toFind, left=0, right=n):
 #        return -1
     if right < left:
         return -1
-    print('left is:', left, 'right is:', right)
+    #print('left is:', left, 'right is:', right)
     mid = left + ((right - left)//2)
-    print('this is mid:','[', mid, ']')
+    if mid == len(list1):
+        return - 1
+    #print('this is mid:','[', mid, ']')
     if toFind == list1[mid]:
-        print('number was found:', mid )
+        #print('number was found:', mid )
         return mid
     elif toFind < list1[mid]:
-        #mid = mid - 1
+        mid = mid - 1
         return binary_search_recursive(list1, toFind, left, mid)
     else:
         mid = mid + 1
