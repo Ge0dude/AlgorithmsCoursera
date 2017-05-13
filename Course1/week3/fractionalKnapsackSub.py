@@ -8,20 +8,24 @@ def get_optimal_value(capacity, weights, values):
     for x in values:
         newVal = x / weights[values.index(x)]
         addList.append(newVal)
-
-
+    
+    
     while capacity > 0:
         maxVal = max(addList)
         if maxVal > 0: 
             maxValIndex = addList.index(max(addList))
-            if capacity - weights[maxValIndex] >= 0:
+            if weights[maxValIndex] <= capacity:  # >= 0:
                 result = result + values[maxValIndex]
-                capacity = capacity - weights[maxValIndex]
                 addList[maxValIndex] = 0
+                capacity = capacity - weights[maxValIndex]
             else:
-                fraction = capacity / weights[maxValIndex] 
+                fraction = capacity / weights[maxValIndex]
                 result = result + (values[maxValIndex] * fraction)
+                addList[maxValIndex] = addList[maxValIndex] - (addList[maxValIndex] * fraction)
                 capacity = capacity - (weights[maxValIndex] * fraction)
+        elif maxVal == 0:
+            break   
+
     return result
 
 

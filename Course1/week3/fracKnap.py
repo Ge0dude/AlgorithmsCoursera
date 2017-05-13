@@ -16,13 +16,16 @@ output needs to be maximum value produced from all the fractions
 
 
 
-capacity = 50
-values = [60, 100, 120]
-weights = [20, 50, 30]
-n = 3
+capacity = 10
+values = [5]
+weights = [30]
+n = 1
 addList = []
 result = 0
 
+
+addList = []
+result = 0
 
 for x in values:
     newVal = x / weights[values.index(x)]
@@ -33,32 +36,20 @@ while capacity > 0:
     maxVal = max(addList)
     if maxVal > 0: 
         maxValIndex = addList.index(max(addList))
-        if capacity - weights[maxValIndex] >= 0:
+        if weights[maxValIndex] <= capacity:# >= 0:
             result = result + values[maxValIndex]
-            capacity = capacity - weights[maxValIndex]
             addList[maxValIndex] = 0
+            capacity = capacity - weights[maxValIndex]
         else:
-            fraction = capacity / weights[maxValIndex] 
+            fraction = capacity / weights[maxValIndex]
             result = result + (values[maxValIndex] * fraction)
+            addList[maxValIndex] = addList[maxValIndex] - (addList[maxValIndex] * fraction)
             capacity = capacity - (weights[maxValIndex] * fraction)
-            
+    elif maxVal == 0:
+        break
         
         
         
 
     
-#if capacity - weights[addList.index(maxVal)] >= 0:
-#    result = result + values[maxVal]
-#    capacity = capacity - weights[maxVal]
-#    addList[addList.index(maxVal)] = 0
-#    
 
-
-#maxValIndex = addList.index(max(addList)) #remember this is already an index
-##going to have to do a nested loop here
-##probably something like while capacity >0
-
-
-
-#doesn't allow for fractional partitions yet
-#didn't exit the loop... hmm
