@@ -13,31 +13,54 @@ output needs to be maximum value produced from all the fractions
     room in the knapsack
 """
 
+
+capacityList = [[50], [10]]
+valuesList = [[60, 100, 120], [500]]
+weightsList = [[20, 50, 30], [30]]
+
+
+capacity = capacityList[1][0]
+values = valuesList[1][0]
+weights = weightsList[1][0]
 n = 3
-capacity = 50
-values = [60, 100, 120]
-weights = [20, 50, 30]
 addList = []
 result = 0
-
 
 for x in values:
     newVal = x / weights[values.index(x)]
     addList.append(newVal)
     
-maxValIndex = addList.index(max(addList)) #remember this is already an index
-#going to have to do a nested loop here
-#probably something like while capacity >0
 
+while capacity > 0:
+    maxVal = max(addList)
+    if maxVal > 0: 
+        maxValIndex = addList.index(max(addList))
+        if capacity - weights[maxValIndex] >= 0:
+            result = result + values[maxValIndex]
+            capacity = capacity - weights[maxValIndex]
+            addList[maxValIndex] = 0
+        else:
+            fraction = capacity / weights[maxValIndex] 
+            result = result + (values[maxValIndex] * fraction)
+            capacity = capacity - (weights[maxValIndex] * fraction)
+            
+        
+        
+        
 
-
-if capacity - weights[maxValIndex] >= 0:
-    result = result + values[maxValIndex]
-    capacity = capacity - weights[maxValIndex]
-    addList[maxValIndex] = 0
     
 #if capacity - weights[addList.index(maxVal)] >= 0:
 #    result = result + values[maxVal]
 #    capacity = capacity - weights[maxVal]
 #    addList[addList.index(maxVal)] = 0
 #    
+
+
+#maxValIndex = addList.index(max(addList)) #remember this is already an index
+##going to have to do a nested loop here
+##probably something like while capacity >0
+
+
+
+#doesn't allow for fractional partitions yet
+#didn't exit the loop... hmm
