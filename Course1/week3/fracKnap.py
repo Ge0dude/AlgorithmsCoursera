@@ -14,25 +14,20 @@ output needs to be maximum value produced from all the fractions
 """
 
 
-capacityList = [[50], [10]]
-valuesList = [[60, 100, 120], [500]]
-weightsList = [[20, 50, 30], [30]]
 
 
-capacity = capacityList[0][0]
-values = valuesList[0]
-weights = weightsList[0]
+capacity = 50
+values = [60, 100, 120]
+weights = [20, 50, 30]
 n = 3
 addList = []
 result = 0
 
-if type(values) == list:
-    for x in values:
-        newVal = x / weights[values.index(x)]
-        addList.append(newVal)
-#if type(values) == int:
-#    addList.append(values/weights)
-    
+
+for x in values:
+    newVal = x / weights[values.index(x)]
+    addList.append(newVal)
+
 
 while capacity > 0:
     maxVal = max(addList)

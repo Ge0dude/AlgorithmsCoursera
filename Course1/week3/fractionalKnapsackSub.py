@@ -5,14 +5,11 @@ def get_optimal_value(capacity, weights, values):
     addList = []
     result = 0
     
-    if type(values) == list:
-        for x in values:
-            newVal = x / weights[values.index(x)]
-            addList.append(newVal)
-    #if type(values) == int:
-    #    addList.append(values/weights)
-        
-    
+    for x in values:
+        newVal = x / weights[values.index(x)]
+        addList.append(newVal)
+
+
     while capacity > 0:
         maxVal = max(addList)
         if maxVal > 0: 
@@ -25,7 +22,7 @@ def get_optimal_value(capacity, weights, values):
                 fraction = capacity / weights[maxValIndex] 
                 result = result + (values[maxValIndex] * fraction)
                 capacity = capacity - (weights[maxValIndex] * fraction)
-        return result
+    return result
 
 
 if __name__ == "__main__":
