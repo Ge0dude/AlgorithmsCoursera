@@ -19,9 +19,9 @@ valuesList = [[60, 100, 120], [500]]
 weightsList = [[20, 50, 30], [30]]
 
 
-capacity = capacityList[1][0]
-values = valuesList[1]
-weights = weightsList[1]
+capacity = capacityList[0][0]
+values = valuesList[0]
+weights = weightsList[0]
 n = 3
 addList = []
 result = 0
