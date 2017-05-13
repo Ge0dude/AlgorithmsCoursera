@@ -20,15 +20,18 @@ weightsList = [[20, 50, 30], [30]]
 
 
 capacity = capacityList[1][0]
-values = valuesList[1][0]
-weights = weightsList[1][0]
+values = valuesList[1]
+weights = weightsList[1]
 n = 3
 addList = []
 result = 0
 
-for x in values:
-    newVal = x / weights[values.index(x)]
-    addList.append(newVal)
+if type(values) == list:
+    for x in values:
+        newVal = x / weights[values.index(x)]
+        addList.append(newVal)
+#if type(values) == int:
+#    addList.append(values/weights)
     
 
 while capacity > 0:
