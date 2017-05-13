@@ -25,8 +25,19 @@ for x in values:
     newVal = x / weights[values.index(x)]
     addList.append(newVal)
     
-maxVal = addList.index(max(addList)) #going to have to do a nested loop here
+maxValIndex = addList.index(max(addList)) #remember this is already an index
+#going to have to do a nested loop here
+#probably something like while capacity >0
 
-if capacity - weight[maxVal] >= 0:
-    result = result + values[maxVal]
+
+
+if capacity - weights[maxValIndex] >= 0:
+    result = result + values[maxValIndex]
+    capacity = capacity - weights[maxValIndex]
+    addList[maxValIndex] = 0
     
+#if capacity - weights[addList.index(maxVal)] >= 0:
+#    result = result + values[maxVal]
+#    capacity = capacity - weights[maxVal]
+#    addList[addList.index(maxVal)] = 0
+#    
