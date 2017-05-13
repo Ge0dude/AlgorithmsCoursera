@@ -4,11 +4,16 @@ changed x to b so that it matched the problem explanation
 '''
 import sys
 
-#file = open('/Users/brendontucker/AlgorithmsCoursera/Course1/week4/binarySearchTest1')
-#sys.stdin = file
+file = open('/Users/brendontucker/AlgorithmsCoursera/Course1/week4/binarySearchTest1')
+sys.stdin = file
 
 
-def binary_search_recursive(list1, toFind):
+def binary_search_recursive(list1, toFind, left=0, right=None):
+    left = left
+    if type(right) == None:
+        right = len(list1) - 1
+    else:
+        right = len(list1[left:right]) 
     if len(list1) == 0:
         return -1
     elif toFind < list1[0]:
@@ -16,13 +21,13 @@ def binary_search_recursive(list1, toFind):
     elif toFind > list1[len(list1) -1]:
         return -1
     else:
-        mid = len(list1)//2
+        mid = left + ((right - left) // 2)
         if toFind == list1[mid]:
             return mid
         elif toFind > list1[mid]:
-            return binary_search_recursive(list1[mid+1:], toFind)
+            return binary_search_recursive(list1, toFind, mid, right)
         else:
-            return binary_search_recursive(list1[:mid], toFind)
+            return binary_search_recursive(list1, toFind, left, mid)
 
 #slicing inceases complexity... might need four arguments
 
@@ -91,3 +96,19 @@ if __name__ == '__main__':
 #            return binary_search(listA, toFind, left, mid)
 #        elif b > a[mid]:
 #            return binary_search(listA, toFind, mid, right)
+
+#def binary_search_recursive(list1, toFind):
+#    if len(list1) == 0:
+#        return -1
+#    elif toFind < list1[0]:
+#        return -1
+#    elif toFind > list1[len(list1) -1]:
+#        return -1
+#    else:
+#        mid = len(list1)//2
+#        if toFind == list1[mid]:
+#            return mid
+#        elif toFind > list1[mid]:
+#            return binary_search_recursive(list1[mid+1:], toFind)
+#        else:
+#            return binary_search_recursive(list1[:mid], toFind)
