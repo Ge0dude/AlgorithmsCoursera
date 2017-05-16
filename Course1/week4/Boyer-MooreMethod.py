@@ -28,8 +28,8 @@ def get_majority_element(array1):
             j += 1
     
     ans = 0        
-    if j/n > 1/2:
-        ans = m
+    if j/n >= 1/2:
+        ans = 1
         
     return ans
 
