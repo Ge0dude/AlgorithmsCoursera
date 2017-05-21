@@ -13,7 +13,7 @@ coinValueList = [1, 5, 21, 25]
 change = 63
 minCoins = [0 for x in range(change + 1)]
 
-for cents in range(30):#(change+1):
+for cents in range(change+1):
     print('START LOOP')
     print('_________')
     print('cents is:', cents)
