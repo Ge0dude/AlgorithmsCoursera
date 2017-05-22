@@ -12,30 +12,30 @@ import sys
 
 def testFunc(stringPlz):    
     openList = []
+    counter1 = 0
     for x in stringPlz:
+        
         if x == '(' or x == '[' or x == '{':
             openList.insert(0,x)
         
         if x == ')' or x == ']' or x == '}':
+            #print(openList)
             if len(openList) == 0:
-                return stringPlz.index(x) + 1
+                return counter1 + 1
             else:
                 top = openList.pop(0)
                 if top == '(' and x != ')' or top == '[' and x != ']' or \
                 top == '{' and x != '}':
-                    return stringPlz.index(x) + 1
+                    return counter1 + 1
                     
         if text.index(x) == len(text) - 1:
             if len(openList) == 0:
                 return 'Success'
-            else: 
-                counter = len(stringPlz) - 1
-                while counter >= 0:
-                    if stringPlz[counter] == '(' or stringPlz[counter] == '[' \
-                    or stringPlz[counter] == '{':
-                        return(stringPlz.index(stringPlz[counter]) + 1)
-                        break
-                    counter -= 1
+            else:
+                #print(openList)
+                topAgain = openList[0]
+                return stringPlz.index(topAgain) + 1
+        counter1 += 1
 
 if __name__ == "__main__":
     text = sys.stdin.read()
@@ -80,6 +80,12 @@ if __name__ == "__main__":
 #testFunc(text)                         
         
         
-        
+#                counter = len(stringPlz) - 1
+#                while counter >= 0:
+#                    if stringPlz[counter] == '(' or stringPlz[counter] == '[' \
+#                    or stringPlz[counter] == '{':
+#                        return(stringPlz.index(stringPlz[counter]) + 1)
+#                        break
+#                    counter -= 1        
         
         
