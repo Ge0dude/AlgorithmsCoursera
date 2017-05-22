@@ -2,6 +2,9 @@
 
 import sys
 
+file = open('/Users/brendontucker/AlgorithmsCoursera/Course2/week1/checkBracketTest1')
+sys.stdin = file
+
 class Bracket:
     def __init__(self, bracket_type, position):
         self.bracket_type = bracket_type
@@ -15,6 +18,8 @@ class Bracket:
         if self.bracket_type == '(' and c == ')':
             return True
         return False
+        
+
 
 if __name__ == "__main__":
     text = sys.stdin.read()
