@@ -7,8 +7,8 @@ Created on Mon May 22 15:21:22 2017
 """
 import sys
 
-#file = open('/Users/brendontucker/AlgorithmsCoursera/Course2/week1/checkBracketTest3')
-#sys.stdin = file
+file = open('/Users/brendontucker/AlgorithmsCoursera/Course2/week1/checkBracketTest3')
+sys.stdin = file
 
 def testFunc(stringPlz):    
     openList = []
@@ -19,7 +19,7 @@ def testFunc(stringPlz):
             openList.insert(0,x)
         
         if x == ')' or x == ']' or x == '}':
-            #print(openList)
+            print(openList)
             if len(openList) == 0:
                 return counter1 + 1
             else:
@@ -28,11 +28,12 @@ def testFunc(stringPlz):
                 top == '{' and x != '}':
                     return counter1 + 1
                     
-        if text.index(x) == len(text) - 1:
+        if counter1 == len(text) - 1:
+            print('got to the end')
             if len(openList) == 0:
                 return 'Success'
             else:
-                #print(openList)
+                print(openList)
                 topAgain = openList[0]
                 return stringPlz.index(topAgain) + 1
         counter1 += 1
