@@ -12,11 +12,16 @@ Created on Tue May 23 13:50:20 2017
 Created on Mon May 22 15:21:22 2017
 
 @author: brendontucker
+
+passed all tests except 54, failed due to time issue, 2.0/1.0 seconds allowed
+
+maybe I can refactor with next and enumerate 
 """
 import sys
 
 #file = open('/Users/brendontucker/AlgorithmsCoursera/Course2/week1/checkBracketTest3')
 #sys.stdin = file
+
 
 def testFunc(stringPlz):    
     openList = []
@@ -51,7 +56,7 @@ def testFunc(stringPlz):
             if len(openList) == 0:
                 return 'Success'
             else:
-                print(openList)
+                #print(openList)
                 topAgain = posList[0]
                 return topAgain + 1
         counter1 += 1
