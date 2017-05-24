@@ -8,54 +8,8 @@ Created on Tue May 23 14:39:57 2017
 
 import sys
 
-#file = open('/Users/brendontucker/AlgorithmsCoursera/Course2/week1/checkBracketTest1')
-#sys.stdin = file
-
-
-#def testFunc(text):    
-#    openList = []
-#    posList = []
-#    counter1 = 0
-#    for i, next in enumerate(text):
-#        if next == '(' or next == '[' or next == '{':
-#            if counter1 == len(text) - 1:
-#                return counter1 + 1
-#            else:
-#                openList.insert(0,next)
-#                posList.insert(0,counter1)
-#                #print(posList)
-#            
-#
-#
-#        if next == ')' or next == ']' or next == '}':
-#            if len(openList) == 0:
-#                return counter1 + 1
-#            else:
-#                #print(openList)
-#                top = openList.pop(0)
-#                #print('top =', top)
-#                #print(posList)
-#                topIn = posList.pop(0) #dont' have to assign here
-#                #print('topIn =', topIn)
-#                if top == '(' and next != ')' or top == '[' and next != ']' or \
-#                top == '{' and next != '}':
-#                    return counter1 + 1
-#                    
-#                    
-#        if counter1 == len(text) - 1:
-#            if len(openList) == 0:
-#                return 'Success'
-#            else:
-#                #print(openList)
-#                topAgain = posList[0]
-#                return topAgain + 1
-#                
-#        counter1 += 1
-#        
-#if __name__ == "__main__":
-#    text = sys.stdin.read()
-#
-#    print(testFunc(text))
+file = open('/Users/brendontucker/AlgorithmsCoursera/Course2/week1/checkBracketTest4')
+sys.stdin = file
 
         
         
@@ -63,7 +17,7 @@ if __name__ == "__main__":
     text = sys.stdin.read()
 
     openList = []
-    posList = []
+    #posList = []
     counter1 = 0
     for i, next in enumerate(text):
         if next == '(' or next == '[' or next == '{':
@@ -72,7 +26,7 @@ if __name__ == "__main__":
                 break
             else:
                 openList.insert(0,next)
-                posList.insert(0,counter1)
+                #posList.insert(0,counter1)
                 #print(posList)
             
 
@@ -86,7 +40,7 @@ if __name__ == "__main__":
                 top = openList.pop(0)
                 #print('top =', top)
                 #print(posList)
-                topIn = posList.pop(0)
+                #topIn = posList.pop(0)
                 #print('topIn =', topIn)
                 if top == '(' and next != ')' or top == '[' and next != ']' or \
                 top == '{' and next != '}':
@@ -98,11 +52,13 @@ if __name__ == "__main__":
             if len(openList) == 0:
                 print( 'Success')
                 break
-            else:
+            '''think else loop is now obsolete due to 
+             / if counter1 == len(text) - 1: / loop '''
+            #else:
                 #print(openList)
-                topAgain = posList[0]
-                print( topAgain + 1)
-                break
+                #topAgain = posList[0]
+                #print( topAgain + 1)
+                #break
         counter1 += 1
         
         
@@ -148,6 +104,51 @@ if __name__ == "__main__":
 #        counter1 += 1        
         
         
+#if __name__ == "__main__":
+#    text = sys.stdin.read()
+#
+#    print(testFunc(text))
+
+#def testFunc(text):    
+#    openList = []
+#    posList = []
+#    counter1 = 0
+#    for i, next in enumerate(text):
+#        if next == '(' or next == '[' or next == '{':
+#            if counter1 == len(text) - 1:
+#                return counter1 + 1
+#            else:
+#                openList.insert(0,next)
+#                posList.insert(0,counter1)
+#                #print(posList)
+#            
+#
+#
+#        if next == ')' or next == ']' or next == '}':
+#            if len(openList) == 0:
+#                return counter1 + 1
+#            else:
+#                #print(openList)
+#                top = openList.pop(0)
+#                #print('top =', top)
+#                #print(posList)
+#                topIn = posList.pop(0) #dont' have to assign here
+#                #print('topIn =', topIn)
+#                if top == '(' and next != ')' or top == '[' and next != ']' or \
+#                top == '{' and next != '}':
+#                    return counter1 + 1
+#                    
+#                    
+#        if counter1 == len(text) - 1:
+#            if len(openList) == 0:
+#                return 'Success'
+#            else:
+#                #print(openList)
+#                topAgain = posList[0]
+#                return topAgain + 1
+#                
+#        counter1 += 1
+#        
 #if __name__ == "__main__":
 #    text = sys.stdin.read()
 #
