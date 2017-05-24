@@ -7,35 +7,40 @@ Created on Mon May 22 15:21:22 2017
 """
 import sys
 
-file = open('/Users/brendontucker/AlgorithmsCoursera/Course2/week1/checkBracketTest3')
+file = open('/Users/brendontucker/AlgorithmsCoursera/Course2/week1/checkBracketTest5')
 sys.stdin = file
 
 def testFunc(stringPlz):    
     openList = []
     counter1 = 0
     for x in stringPlz:
+#        if x == '(' or x == '[' or x == '{':
+#            if counter1 == len(stringPlz) - 1:
+#                return counter1 + 1
+#            else:
+#                openList.append(x)
         
         if x == '(' or x == '[' or x == '{':
-            openList.insert(0,x)
+            #openList.insert(0,x)
+            openList.append(x)
         
         if x == ')' or x == ']' or x == '}':
-            print(openList)
             if len(openList) == 0:
                 return counter1 + 1
             else:
-                top = openList.pop(0)
+                #top = openList.pop(0)
+                top = openList.pop(-1)
                 if top == '(' and x != ')' or top == '[' and x != ']' or \
                 top == '{' and x != '}':
                     return counter1 + 1
                     
         if counter1 == len(text) - 1:
-            print('got to the end')
+            #print('got to the end')
             if len(openList) == 0:
                 return 'Success'
             else:
-                print(openList)
-                topAgain = openList[0]
-                return stringPlz.index(topAgain) + 1
+                return counter1 #+ 1
+                
         counter1 += 1
 
 if __name__ == "__main__":
